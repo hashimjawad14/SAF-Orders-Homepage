@@ -103,6 +103,7 @@ body {
 
 /* ================= HERO ================= */
 .hero {
+    background: #f8fafc;
     padding: 140px 2rem 140px;
     text-align: center;
     margin-top: 23px;
@@ -115,8 +116,8 @@ body {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(30, 58, 138, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(30, 58, 138, 0.06) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -197,7 +198,7 @@ body {
 
 /* ================= GLOBAL SECTIONS ================= */
 .section {
-    padding: 70px 2rem;
+    padding: 120px 2rem;
     max-width: 1280px;
     margin: 0 auto;
     background: #f8fafc;
@@ -315,11 +316,19 @@ body {
     gap: 1.75rem;
 }
 
+.work-icon {
+    font-size: 2rem;
+}
+
 .work-icon i {
     width: 34px;
     height: 34px;
     stroke-width: 1.8;
     color: #1e3a8a;
+}
+
+.work-title {
+    flex: 1;
 }
 
 .work-title h3 {
@@ -336,6 +345,7 @@ body {
 }
 
 .expand-icon {
+    flex-shrink: 0;
     width: 38px;
     height: 38px;
     background: #f1f5f9;
@@ -345,6 +355,7 @@ body {
     justify-content: center;
     transition: all 0.3s ease;
     color: #475569;
+    font-size: 0.875rem;
 }
 
 .work-item.active .expand-icon {
@@ -370,12 +381,24 @@ body {
     align-items: flex-start;
 }
 
+.work-description {
+    flex: 1;
+}
+
 .work-description p {
     font-size: 1.05rem;
     color: #475569;
     line-height: 1.85;
     margin-bottom: 1rem;
     text-align: justify;
+}
+
+@media (min-width: 968px) {
+    .work-description p {
+        max-width: 40vw;
+        font-size: 1.1rem;
+        padding-left: 3vw;
+    }
 }
 
 .work-image {
@@ -394,7 +417,7 @@ body {
 
 /* ================= CONTACT ================= */
 .contact-section {
-    padding-top: 1rem;
+    padding-top: 6rem;
     background: #f8fafc;
 }
 
@@ -405,12 +428,17 @@ body {
     margin-top: 3.5rem;
 }
 
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
 .contact-item {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
     padding: 2rem;
-    margin-bottom: 2.5rem;
     background: white;
     border-radius: 20px;
     border: 1px solid #e2e8f0;
@@ -433,6 +461,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1.6rem;
+    flex-shrink: 0;
 }
 
 .contact-details h4 {
@@ -941,23 +970,6 @@ body {
             const header = document.getElementById("header");
             header.classList.toggle("scrolled", window.scrollY > 20);
         });
-
-
-        let lastScrollTop = 0;
-const header = document.getElementById("header");
-
-window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > lastScrollTop && currentScroll > 80) {
-        header.classList.add("hide"); // hide on scroll down
-    } else {
-        header.classList.remove("hide"); // show on scroll up
-    }
-
-    header.classList.toggle("scrolled", currentScroll > 20);
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-});
     </script>
 </body>
 </html>
