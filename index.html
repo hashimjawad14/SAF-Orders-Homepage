@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="https://unpkg.com/lucide@0.474.0/dist/umd/lucide.min.js"></script>
     <title>SAF Orders - Smart Kitchen Order Management</title>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
 <style>
     * {
     margin: 0;
@@ -578,6 +580,86 @@ body {
     }
 }
 
+
+/* ================= COMPACT PROCESS FLOW ================= */
+/* ================= ANIMATED WORKFLOW ================= */
+.workflow-section {
+    padding: 90px 2rem 80px;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.workflow-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.workflow-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.9px;
+}
+
+.workflow-subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    line-height: 1.7;
+}
+
+.workflow-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.workflow-step {
+    max-width: 260px;
+}
+
+.workflow-step h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.workflow-step p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.workflow-connector {
+    font-size: 2.2rem;
+    color: #c7d2fe;
+    margin-top: -10px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .workflow-steps {
+        flex-direction: column;
+    }
+
+    .workflow-connector {
+        display: none;
+    }
+}
+
+
+.workflow-step lottie-player {
+    display: block;
+    margin: 0 auto;
+}
+
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 968px) {
     .work-inner {
@@ -694,6 +776,113 @@ body {
             </div>
         </div>
     </section>
+
+
+    <!-- Compact Process Flow Section -->
+<!-- <section class="process-section">
+    <div class="process-container">
+        <h2 class="process-title">Scan. Order. Enjoy.</h2>
+        <p class="process-subtitle">
+            A simple, reliable workflow designed for modern office environments.
+        </p>
+
+        <div class="process-flow">
+            <div class="process-card">
+                <div class="process-icon">
+                    <i data-lucide="qr-code"></i>
+                </div>
+                <h3>Scan</h3>
+                <p>Employees scan the desk QR code to access services instantly.</p>
+            </div>
+
+            <div class="process-card">
+                <div class="process-icon">
+                    <i data-lucide="clipboard-list"></i>
+                </div>
+                <h3>Order</h3>
+                <p>Select items and order them in seconds.</p>
+            </div>
+
+            <div class="process-card">
+                <div class="process-icon">
+                    <i data-lucide="check-circle"></i>
+                </div>
+                <h3>Enjoy</h3>
+                <p>Orders are delivered accurately and efficiently to the desk.</p>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- Animated Workflow Section -->
+<section class="workflow-section">
+    <div class="workflow-container">
+        <h2 class="workflow-title">Scan. Order. Enjoy.</h2>
+        <p class="workflow-subtitle">
+            A seamless end-to-end office service experience.
+        </p>
+
+        <div class="workflow-steps">
+            <!-- Step 1 -->
+            <div class="workflow-step">
+                <!-- <lottie-player
+                    src="https://lottie.host/be9ad184-9747-436d-bc67-d0327e12ad51/Ws695d5agp.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 180px; height: 180px;"
+                    loop
+                    autoplay>
+                </lottie-player> -->
+                <lottie-player
+                    src="https://lottie.host/84af0af8-87d6-4a35-a4bb-1bca47b75e89/a3nDCqpKOS.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 180px; height: 180px;"
+                    loop
+                    autoplay>
+                </lottie-player>
+                <h3>Scan</h3>
+                <p>Scan the QR code at your desk to access services.</p>
+            </div>
+
+            <!-- Connector -->
+            <div class="workflow-connector">→</div>
+
+            <!-- Step 2 -->
+            <div class="workflow-step">
+                <lottie-player
+                    src="https://lottie.host/087bb89c-c843-48e2-8287-dc1fb8418fbd/ZRd2uHQWrI.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 180px; height: 180px;"
+                    loop
+                    autoplay>
+                </lottie-player>
+                <h3>Order</h3>
+                <p>Select items and submit your request in seconds.</p>
+            </div>
+
+            <!-- Connector -->
+            <div class="workflow-connector">→</div>
+
+            <!-- Step 3 -->
+            <div class="workflow-step">
+                <lottie-player
+                    src="https://lottie.host/1df7b479-698b-4aa6-b427-c4801b9eda93/9QI08FEYgV.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 180px; height: 180px;"
+                    loop
+                    autoplay>
+                </lottie-player>
+                <h3>Enjoy</h3>
+                <p>Your order is delivered accurately and on time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
     <!-- Our Partners Section -->
     <section class="section partners" id="partners">
