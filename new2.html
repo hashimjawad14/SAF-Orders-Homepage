@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="https://unpkg.com/lucide@0.474.0/dist/umd/lucide.min.js"></script>
-    <title>SAF Orders - Smart Kitchen Order Management</title>
+    <title>SAF Orders - Smart Office Service Management</title>
     <style>
+        /* ================== Base Styles ================== */
         * {
             margin: 0;
             padding: 0;
@@ -20,9 +21,10 @@
             background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
         }
 
+        /* ================== Header & Navigation ================== */
         .header {
             background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid #e2e8f0;
             padding: 1rem 0;
             position: fixed;
@@ -33,7 +35,7 @@
         }
 
         .header.scrolled {
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
         }
 
         .nav {
@@ -50,14 +52,14 @@
             align-items: center;
             gap: 0.75rem;
             font-size: 1.5rem;
-            font-weight: 800;
+            font-weight: 700;
             color: #1e3a8a;
             letter-spacing: -0.5px;
         }
 
         .logo img {
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             object-fit: contain;
         }
 
@@ -70,7 +72,7 @@
         .nav-links a {
             color: #475569;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: color 0.3s;
             font-weight: 500;
             font-size: 0.95rem;
             position: relative;
@@ -96,11 +98,21 @@
             width: 100%;
         }
 
+        .menu-toggle {
+            display: none;
+            font-size: 1.75rem;
+            cursor: pointer;
+            color: #1e3a8a;
+            background: none;
+            border: none;
+        }
+
+        /* ================== Hero Section ================== */
         .hero {
             background: linear-gradient(165deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
-            padding: 120px 2rem 140px;
+            padding: 60px 2rem 120px;
             text-align: center;
-            margin-top: 23px;
+            margin-top: 73px;
             position: relative;
             overflow: hidden;
         }
@@ -131,8 +143,13 @@
             border-radius: 50px;
             font-size: 0.875rem;
             font-weight: 600;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             animation: fadeInDown 0.6s ease;
+        }
+
+        .hero-badge i {
+            width: 18px;
+            height: 18px;
         }
 
         .hero h1 {
@@ -156,7 +173,7 @@
         .hero p {
             font-size: 1.15rem;
             line-height: 1.7;
-            margin-bottom: 3.5rem;
+            margin-bottom: 3rem;
             color: #475569;
             animation: fadeInUp 0.8s ease 0.2s backwards;
             max-width: 700px;
@@ -175,21 +192,21 @@
         .cta-button {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             color: white;
-            padding: 1.1rem 2.75rem;
+            padding: 1rem 2.5rem;
             border: none;
-            border-radius: 14px;
+            border-radius: 12px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            /* box-shadow: 0 10px 30px rgba(59, 130, 246, 0.35); */
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
         }
 
+        /* ================== Section Base ================== */
         .section {
             padding: 120px 2rem;
             max-width: 1280px;
@@ -199,7 +216,19 @@
         .section-header {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 4.5rem;
+            margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(30, 58, 138, 0.1));
+            color: #1e40af;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
         }
 
         .section-title {
@@ -218,104 +247,100 @@
             line-height: 1.7;
         }
 
-        /* Partners Section */
-        .partners {
-            background: #f8fafc;
+        /* ================== Partners Section ================== */
+        .partners-section {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            padding-top: 100px;
         }
 
-        .partners-carousel {
-            overflow: hidden;
-            position: relative;
-            margin-top: 3rem;
-        }
-
-        .partners-track {
-            display: flex;
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 2.5rem;
-            animation: scroll 25s linear infinite;
-            width: max-content;
+            align-items: center;
+            margin-top: 3rem;
         }
 
         .partner-card {
             background: white;
             border: 1px solid #e2e8f0;
             border-radius: 18px;
-            padding: 2.25rem 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 220px;
+            padding: 2rem 1.5rem;
+            text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         }
 
         .partner-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
             border-color: #3b82f6;
         }
 
-        .partner-card img {
-            max-width: 140px;
+        .partner-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-logo img {
             max-height: 60px;
+            max-width: 140px;
             object-fit: contain;
             filter: grayscale(100%);
-            opacity: 0.8;
+            opacity: 0.85;
             transition: all 0.3s ease;
         }
 
-        .partner-card:hover img {
+        .partner-card:hover .partner-logo img {
             filter: grayscale(0%);
             opacity: 1;
         }
 
-        @keyframes scroll {
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(-40%);
-            }
+        .partner-name {
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
         }
 
-        /* How It Works Section */
+        .partner-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* ================== How It Works Section ================== */
         .how-it-works {
             background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-            margin-bottom: 0;
-            padding-bottom: 0;
         }
 
         .work-item {
             background: white;
-            margin-bottom: 1.75rem;
-            border-radius: 24px;
+            margin-bottom: 1.5rem;
+            border-radius: 20px;
             border: 1px solid #e2e8f0;
             overflow: hidden;
-            transition: all 0.35s ease;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
         }
 
         .work-item:hover {
             border-color: #cbd5e1;
-            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         }
 
         .work-header {
             display: flex;
             align-items: center;
-            padding: 2.25rem;
+            padding: 2rem;
             cursor: pointer;
             user-select: none;
-            gap: 1.75rem;
-        }
-
-        .work-icon {
-            font-size: 2rem;
+            gap: 1.5rem;
         }
 
         .work-icon i {
-            width: 34px;
-            height: 34px;
+            width: 32px;
+            height: 32px;
             stroke-width: 1.8;
             color: #1e3a8a;
         }
@@ -339,8 +364,8 @@
 
         .expand-icon {
             flex-shrink: 0;
-            width: 38px;
-            height: 38px;
+            width: 36px;
+            height: 36px;
             background: #f1f5f9;
             border-radius: 50%;
             display: flex;
@@ -360,17 +385,17 @@
         .work-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.45s ease;
+            transition: max-height 0.4s ease;
         }
 
         .work-item.active .work-content {
-            max-height: 1200px;
+            max-height: 1000px;
         }
 
         .work-inner {
-            padding: 0 2.25rem 2.75rem;
+            padding: 0 2rem 2.5rem;
             display: flex;
-            gap: 3.5rem;
+            gap: 3rem;
             align-items: flex-start;
         }
 
@@ -381,7 +406,7 @@
         .work-description p {
             font-size: 1rem;
             color: #475569;
-            line-height: 1.85;
+            line-height: 1.8;
             margin-bottom: 1rem;
             text-align: justify;
         }
@@ -397,63 +422,62 @@
         .work-image {
             flex-shrink: 0;
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
         }
 
         .work-image img {
             width: 100%;
             height: auto;
-            border-radius: 18px;
-            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.14);
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
             border: 1px solid #e2e8f0;
         }
 
-        /* Contact Section */
+        /* ================== Contact Section ================== */
         .contact-section {
-            padding-top: 6rem;
+            padding-top: 5rem;
             background: #f8fafc;
         }
 
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
-            margin-top: 3.5rem;
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 1.75rem;
+            gap: 1.5rem;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
-            padding: 2rem;
+            gap: 1.25rem;
+            padding: 1.75rem;
             background: white;
-            border-radius: 20px;
+            border-radius: 16px;
             border: 1px solid #e2e8f0;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
         }
 
         .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
             border-color: #cbd5e1;
         }
 
         .contact-icon {
-            width: 52px;
-            height: 52px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border-radius: 14px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
         }
 
@@ -482,14 +506,14 @@
 
         .contact-form {
             background: white;
-            padding: 3rem;
-            border-radius: 24px;
+            padding: 2.5rem;
+            border-radius: 20px;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
         }
 
         .form-group {
-            margin-bottom: 1.75rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
@@ -503,9 +527,9 @@
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.95rem 1.1rem;
+            padding: 0.875rem 1rem;
             border: 1px solid #e2e8f0;
-            border-radius: 14px;
+            border-radius: 12px;
             font-size: 0.95rem;
             font-family: inherit;
             transition: all 0.3s ease;
@@ -522,39 +546,29 @@
 
         .form-group textarea {
             resize: vertical;
-            min-height: 130px;
+            min-height: 120px;
         }
 
         .submit-btn {
             width: 100%;
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             color: white;
-            padding: 1.15rem;
+            padding: 1rem;
             border: none;
-            border-radius: 14px;
+            border-radius: 12px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            /* box-shadow: 0 10px 30px rgba(59, 130, 246, 0.35); */
+            /* box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4); */
         }
 
         .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
         }
 
-        /* Mobile Menu */
-        .menu-toggle {
-            display: none;
-            font-size: 1.75rem;
-            cursor: pointer;
-            color: #1e3a8a;
-            background: none;
-            border: none;
-        }
-
-        /* Animations */
+        /* ================== Animations ================== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -577,7 +591,7 @@
             }
         }
 
-        /* Responsive Design */
+        /* ================== Responsive Design ================== */
         @media (max-width: 968px) {
             .work-inner {
                 flex-direction: column;
@@ -620,15 +634,15 @@
             }
 
             .hero {
-                padding: 140px 1.5rem 90px;
+                padding: 140px 1.5rem 80px;
             }
 
             .hero h1 {
-                font-size: 2.4rem;
+                font-size: 2.25rem;
             }
 
             .hero h2 {
-                font-size: 1.3rem;
+                font-size: 1.25rem;
             }
 
             .hero p {
@@ -636,19 +650,19 @@
             }
 
             .section {
-                padding: 90px 1.5rem;
+                padding: 80px 1.5rem;
             }
 
             .section-title {
-                font-size: 2.1rem;
+                font-size: 2rem;
             }
 
             .work-header {
-                padding: 1.75rem;
+                padding: 1.5rem;
             }
 
             .work-inner {
-                padding: 0 1.75rem 2.25rem;
+                padding: 0 1.5rem 2rem;
             }
 
             .cta-group {
@@ -662,6 +676,7 @@
     </style>
 </head>
 <body>
+    <!-- ================== Header ================== -->
     <header class="header" id="header">
         <nav class="nav">
             <div class="logo">
@@ -678,6 +693,7 @@
         </nav>
     </header>
 
+    <!-- ================== Hero ================== -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-badge">
@@ -686,111 +702,90 @@
             </div>
             <h1>SAF Office Solutions</h1>
             <h2>Internal Service Management for Offices</h2>
-            <p>Simplify daily requests without payments or apps.</p>
+            <p>Simplify daily service requests — no payments, no apps, just seamless operations.</p>
             <div class="cta-group">
                 <button class="cta-button" onclick="window.location.href='#contact'">Get Started</button>
             </div>
         </div>
     </section>
 
-    <!-- Our Partners Section -->
-    <section class="section partners" id="partners">
+    <!-- ================== Partners Section ================== -->
+    <section class="section partners-section" id="partners">
         <div class="section-header">
-            <h2 class="section-title">Our Trusted Partners</h2>
-            <p class="section-subtitle">
-                We collaborate with leading organizations to deliver reliable, secure, and efficient office service solutions.
-            </p>
+            <span class="section-badge">Trusted By</span>
+            <h2 class="section-title">Our Partners</h2>
+            <p class="section-subtitle">We proudly collaborate with leading organizations to deliver reliable, high-quality office service experiences.</p>
         </div>
 
-        <div class="partners-carousel">
-            <div class="partners-track">
-                <div class="partner-card"><img src="partner1.png" alt="Partner 1"></div>
-                <div class="partner-card"><img src="partner2.png" alt="Partner 2"></div>
-                <div class="partner-card"><img src="partner3.jpg" alt="Partner 3"></div>
-                <div class="partner-card"><img src="partner4.jpg" alt="Partner 4"></div>
-                <div class="partner-card"><img src="partner5.jpg" alt="Partner 5"></div>
-                <div class="partner-card"><img src="partner6.jpg" alt="Partner 6"></div>
-                <div class="partner-card"><img src="partner7.jpg" alt="Partner 7"></div>
-                <div class="partner-card"><img src="partner8.png" alt="Partner 8"></div>
-                <div class="partner-card"><img src="partner9.jpg" alt="Partner 9"></div>
-                <div class="partner-card"><img src="partner10.jpg" alt="Partner 10"></div>
-                <div class="partner-card"><img src="partner11.jpg" alt="Partner 11"></div>
-                <div class="partner-card"><img src="partner12.png" alt="Partner 12"></div>  
-                <div class="partner-card"><img src="partner13.png" alt="Partner 13"></div>
-                <div class="partner-card"><img src="partner14.png" alt="Partner 14"></div>
-                <div class="partner-card"><img src="partner15.jpg" alt="Partner 15"></div>
-                <div class="partner-card"><img src="partner16.png" alt="Partner 16"></div>
-                <div class="partner-card"><img src="partner17.png" alt="Partner 17"></div>
-                <div class="partner-card"><img src="partner18.png" alt="Partner 18"></div>
-                <div class="partner-card"><img src="partner19.png" alt="Partner 19"></div>
-                <div class="partner-card"><img src="partner20.png" alt="Partner 20"></div>
-                <div class="partner-card"><img src="partner21.jpg" alt="Partner 21"></div>
-                <div class="partner-card"><img src="partner22.png" alt="Partner 22"></div>
-                <div class="partner-card"><img src="partner23.jpg" alt="Partner 23"></div>
-                <div class="partner-card"><img src="partner24.png" alt="Partner 24"></div>
-                <div class="partner-card"><img src="partner25.jpg" alt="Partner 25"></div>
-                <div class="partner-card"><img src="partner26.jpg" alt="Partner 26"></div>
-                <div class="partner-card"><img src="partner27.png" alt="Partner 27"></div>
-                <div class="partner-card"><img src="partner28.jpg" alt="Partner 28"></div>
+        <div class="partners-grid">
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="partner1.png" alt="Partner 1 Logo" loading="lazy" />
+                </div>
+                <div class="partner-name">GlobalTech Group</div>
+                <div class="partner-desc">Enterprise Office Services</div>
+            </div>
 
-                <!-- Duplicate set for seamless loop -->
-                <div class="partner-card"><img src="partner1.png" alt="Partner 1"></div>
-                <div class="partner-card"><img src="partner2.png" alt="Partner 2"></div>
-                <div class="partner-card"><img src="partner3.jpg" alt="Partner 3"></div>
-                <div class="partner-card"><img src="partner4.jpg" alt="Partner 4"></div>
-                <div class="partner-card"><img src="partner5.jpg" alt="Partner 5"></div>
-                <div class="partner-card"><img src="partner6.jpg" alt="Partner 6"></div>
-                <div class="partner-card"><img src="partner7.jpg" alt="Partner 7"></div>
-                <div class="partner-card"><img src="partner8.png" alt="Partner 8"></div>
-                <div class="partner-card"><img src="partner9.jpg" alt="Partner 9"></div>
-                <div class="partner-card"><img src="partner10.jpg" alt="Partner 10"></div>
-                <div class="partner-card"><img src="partner11.jpg" alt="Partner 11"></div>
-                <div class="partner-card"><img src="partner12.png" alt="Partner 12"></div>  
-                <div class="partner-card"><img src="partner13.png" alt="Partner 13"></div>
-                <div class="partner-card"><img src="partner14.png" alt="Partner 14"></div>
-                <div class="partner-card"><img src="partner15.jpg" alt="Partner 15"></div>
-                <div class="partner-card"><img src="partner16.png" alt="Partner 16"></div>
-                <div class="partner-card"><img src="partner17.png" alt="Partner 17"></div>
-                <div class="partner-card"><img src="partner18.png" alt="Partner 18"></div>
-                <div class="partner-card"><img src="partner19.png" alt="Partner 19"></div>
-                <div class="partner-card"><img src="partner20.png" alt="Partner 20"></div>
-                <div class="partner-card"><img src="partner21.jpg" alt="Partner 21"></div>
-                <div class="partner-card"><img src="partner22.png" alt="Partner 22"></div>
-                <div class="partner-card"><img src="partner23.jpg" alt="Partner 23"></div>
-                <div class="partner-card"><img src="partner24.png" alt="Partner 24"></div>
-                <div class="partner-card"><img src="partner25.jpg" alt="Partner 25"></div>
-                <div class="partner-card"><img src="partner26.jpg" alt="Partner 26"></div>
-                <div class="partner-card"><img src="partner27.png" alt="Partner 27"></div>
-                <div class="partner-card"><img src="partner28.jpg" alt="Partner 28"></div>
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="partner2.png" alt="Partner 2 Logo" loading="lazy" />
+                </div>
+                <div class="partner-name">Elite Workspaces</div>
+                <div class="partner-desc">Corporate Facilities Management</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="partner3.png" alt="Partner 3 Logo" loading="lazy" />
+                </div>
+                <div class="partner-name">Prime Business Centers</div>
+                <div class="partner-desc">Premium Office Environments</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="partner4.png" alt="Partner 4 Logo" loading="lazy" />
+                </div>
+                <div class="partner-name">Vision Holdings</div>
+                <div class="partner-desc">Corporate Operations & Support</div>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="partner5.png" alt="Partner 5 Logo" loading="lazy" />
+                </div>
+                <div class="partner-name">NextGen Offices</div>
+                <div class="partner-desc">Smart Workplace Solutions</div>
             </div>
         </div>
     </section>
 
+    <!-- ================== How It Works ================== -->
     <section class="section how-it-works" id="how-it-works">
-        <h2 class="section-title" style="text-align: center;">How Does It Work?</h2>
-        <p class="section-subtitle" style="text-align: center; margin-bottom: 20px;">
-            Through our services, take your employees on a seamless order & tracking journey!
-        </p>
+        <div class="section-header">
+            <h2 class="section-title">How Does It Work?</h2>
+            <p class="section-subtitle">A seamless service journey from request to delivery.</p>
+        </div>
 
         <div class="work-item" onclick="toggleWork(this)">
             <div class="work-header">
-                <div class="work-icon">    
+                <div class="work-icon">
                     <i data-lucide="qr-code"></i>
                 </div>
                 <div class="work-title">
-                    <h3>QR Code Order & Payment</h3>
-                    <p>Scan, browse, and order instantly from any desk</p>
+                    <h3>QR Code Service Requests</h3>
+                    <p>Scan, browse, and request instantly from any desk</p>
                 </div>
                 <div class="expand-icon">▼</div>
             </div>
             <div class="work-content">
                 <div class="work-inner">
                     <div class="work-description">
-                        <p>Employees can scan a QR code at their desk to browse the complete menu, choose their favorite beverages and snacks, and place orders instantly without needing to call or wait for staff.</p>
-                        <p>Each desk has a unique QR code that automatically identifies the location, room number, and desk ID, ensuring accurate delivery every time.</p>
+                        <p>Employees scan a QR code at their desk to browse available services and place requests instantly — no calls, no apps, no delays.</p>
+                        <p>Each desk has a unique QR code that automatically identifies the location, ensuring accurate and fast delivery every time.</p>
                     </div>
                     <div class="work-image">
-                        <img src="qr scanning.avif" alt="QR Scan" loading="lazy"/>
+                        <img src="qr scanning.avif" alt="QR Scan" loading="lazy" />
                     </div>
                 </div>
             </div>
@@ -803,17 +798,17 @@
                 </div>
                 <div class="work-title">
                     <h3>Real-Time Dashboard</h3>
-                    <p>Orders appear instantly on kitchen displays</p>
+                    <p>Requests appear instantly on staff dashboards</p>
                 </div>
                 <div class="expand-icon">▼</div>
             </div>
             <div class="work-content">
                 <div class="work-inner">
                     <div class="work-description">
-                        <p>Orders instantly appear on the assigned tea boy's dashboard with complete details including desk location, room number, items ordered, and any special requests in the notes section.</p>
+                        <p>Requests appear instantly on the service staff dashboard with full details — desk location, room number, items requested, and notes.</p>
                     </div>
                     <div class="work-image">
-                        <img src="teaboy dashboard.png" alt="Teaboy Dashboard" loading="lazy"/>
+                        <img src="teaboy dashboard.png" alt="Staff Dashboard" loading="lazy" />
                     </div>
                 </div>
             </div>
@@ -826,17 +821,17 @@
                 </div>
                 <div class="work-title">
                     <h3>Order Fulfillment & Updates</h3>
-                    <p>Track every order from preparation to delivery</p>
+                    <p>Track every request from preparation to delivery</p>
                 </div>
                 <div class="expand-icon">▼</div>
             </div>
             <div class="work-content">
                 <div class="work-inner">
                     <div class="work-description">
-                        <p>Tea boys can easily update order status from 'Received' to 'In Progress' to 'Completed' with just a tap. This keeps employees informed about their order's progress.</p>
+                        <p>Staff update request status from “Received” to “In Progress” to “Completed,” keeping employees informed in real time.</p>
                     </div>
                     <div class="work-image">
-                        <img src="order_update.png" alt="Order Update" loading="lazy"/>
+                        <img src="order_update.png" alt="Order Update" loading="lazy" />
                     </div>
                 </div>
             </div>
@@ -856,23 +851,23 @@
             <div class="work-content">
                 <div class="work-inner">
                     <div class="work-description">
-                        <p>
-                            One dashboard to manage operations and track performance.
-                            Usage, delivery times, ratings, and team performance — all in one place.
-                        </p>
+                        <p>One dashboard to manage operations and track performance — usage, response times, and service quality, all in one place.</p>
                     </div>
                     <div class="work-image">
-                        <img src="stats.png" alt="Statistics" loading="lazy"/>
+                        <img src="stats.png" alt="Statistics" loading="lazy" />
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ================== Contact ================== -->
     <section class="section contact-section" id="contact">
-        <h2 class="section-title" style="text-align: center;">Contact Us</h2>
-        <p class="section-subtitle" style="text-align: center;">Get in touch with us for any inquiries or support</p>
-        
+        <div class="section-header">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch with us for inquiries, demos, or support.</p>
+        </div>
+
         <div class="contact-container">
             <div class="contact-info">
                 <div class="contact-item">
@@ -882,7 +877,7 @@
                         <p>Riyadh, Kingdom of Saudi Arabia</p>
                     </div>
                 </div>
-                
+
                 <div class="contact-item">
                     <div class="contact-icon"><i data-lucide="mail"></i></div>
                     <div class="contact-details">
@@ -890,7 +885,7 @@
                         <p><a href="mailto:admin@saforders.com">admin@saforders.com</a></p>
                     </div>
                 </div>
-                
+
                 <div class="contact-item">
                     <div class="contact-icon"><i data-lucide="phone"></i></div>
                     <div class="contact-details">
@@ -898,7 +893,7 @@
                         <p><a href="tel:123456789">123456789</a></p>
                     </div>
                 </div>
-                
+
                 <div class="contact-item">
                     <div class="contact-icon"><i data-lucide="clock"></i></div>
                     <div class="contact-details">
@@ -908,24 +903,24 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="contact-form">
                 <form action="https://formspree.io/f/xojjqyee" method="POST">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required placeholder="Enter your name">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Email Address *</label>
                         <input type="email" id="email" name="email" required placeholder="Enter your email">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message">Message *</label>
                         <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
@@ -937,6 +932,7 @@
         </div>
     </section>
 
+    <!-- ================== Scripts ================== -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             lucide.createIcons();
@@ -945,11 +941,9 @@
         function toggleWork(element) {
             const allItems = document.querySelectorAll('.work-item');
             const isActive = element.classList.contains('active');
-            
-            allItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            
+
+            allItems.forEach(item => item.classList.remove('active'));
+
             if (!isActive) {
                 element.classList.add('active');
             }
@@ -958,11 +952,6 @@
         function toggleMenu() {
             document.querySelector('.nav-links').classList.toggle('show');
         }
-
-        window.addEventListener("scroll", () => {
-            const header = document.getElementById("header");
-            header.classList.toggle("scrolled", window.scrollY > 20);
-        });
     </script>
 </body>
 </html>
