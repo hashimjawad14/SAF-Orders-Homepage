@@ -1448,6 +1448,8 @@ body.rtl p {
             allItems.forEach(item => {
                 item.classList.remove('active');
             });
+
+
             
             if (!isActive) {
                 element.classList.add('active');
@@ -1491,17 +1493,25 @@ function toggleLanguage() {
     const isRTL = body.classList.toggle("rtl");
     langBtn.textContent = isRTL ? "EN" : "AR";
     body.style.opacity = "1";
+
+    const inputs = document.querySelectorAll("input, textarea");
+    inputs.forEach(input => {
+        input.placeholder = isRTL ? input.dataset.ar : input.dataset.en;
+    });
+
+    // Update visible text elements
+    const enElements = document.querySelectorAll("[data-lang='en']");
+    const arElements = document.querySelectorAll("[data-lang='ar']");
+    if (isRTL) {
+        enElements.forEach(el => el.style.display = "none");
+        arElements.forEach(el => el.style.display = "inline");
+    } else {
+        enElements.forEach(el => el.style.display = "inline");
+        arElements.forEach(el => el.style.display = "none");
+    }
   }, 300);
-
-  document.querySelectorAll("input, textarea").forEach(el => {
-  if (el.dataset.en && el.dataset.ar) {
-    el.placeholder = document.body.classList.contains("rtl")
-      ? el.dataset.ar
-      : el.dataset.en;
-  }
-});
-
 }
+
     </script>
 </body>
 </html>
