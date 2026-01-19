@@ -286,31 +286,6 @@ body {
     opacity: 1;
 }
 
-.partners-track {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  gap: 2rem !important;
-}
-
-body:not(.rtl) .partners-track {
-  animation: scroll-ltr 45s linear infinite;
-}
-
-body.rtl .partners-track {
-  animation: scroll-rtl 45s linear infinite;
-}
-
-@keyframes scroll-ltr {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@keyframes scroll-rtl {
-  from { transform: translateX(0); }
-  to { transform: translateX(50%); }
-}
-
-
 @keyframes scroll {
     from {
         transform: translateX(0);
@@ -775,53 +750,6 @@ body.rtl .partners-track {
     }
 }
 
-
-/* Language visibility */
-[data-lang="ar"] {
-  display: none;
-}
-
-body.rtl [data-lang="en"] {
-  display: none;
-}
-
-body.rtl [data-lang="ar"] {
-  display: inline;
-}
-
-
-body.rtl {
-  direction: rtl;
-  font-family: "Cairo", "Arial", sans-serif;
-}
-
-body.rtl * {
-  font-family: "Cairo", "Arial", sans-serif;
-  font-weight: 500;
-}
-
-body.rtl h1,
-body.rtl h2,
-body.rtl h3 {
-  font-weight: 700;
-}
-
-body.rtl p {
-  line-height: 1.8;
-}
-
-.lang-switch {
-  background: #1e3a8a;
-  color: white;
-  border: none;
-  padding: 0.45rem 0.9rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  margin-left: 1rem;
-}
-
-
 </style>
 </head>
 <body>
@@ -833,61 +761,28 @@ body.rtl p {
             </div>
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
-<li>
-  <a href="#home">
-    <span data-lang="en">Home</span>
-    <span data-lang="ar">الرئيسية</span>
-  </a>
-</li>
-
-<li>
-  <a href="#partners">
-    <span data-lang="en">Partners</span>
-    <span data-lang="ar">شركاؤنا</span>
-  </a>
-</li>
-
-<li>
-  <a href="#how-it-works">
-    <span data-lang="en">How It Works</span>
-    <span data-lang="ar">كيف يعمل</span>
-  </a>
-</li>
-
-<li>
-  <a href="#contact">
-    <span data-lang="en">Contact</span>
-    <span data-lang="ar">تواصل معنا</span>
-  </a>
-</li>
-</ul>
-            <button class="lang-switch" onclick="toggleLanguage()">AR</button>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-<h1>
-  <span data-lang="en">Smarter Standard for Office Services</span>
-  <span data-lang="ar">معيار أذكى لخدمات المكاتب</span>
-</h1>
-
-<h2>
-  <span data-lang="en">Reliable, organized and built for modern workplace</span>
-  <span data-lang="ar">موثوقة، منظمة ومصممة لبيئة العمل الحديثة</span>
-</h2>
-
-
-<div class="cta-group">
-  <button
-    class="cta-button"
-    onclick="window.location.href='#contact'"
-    style="margin-top: 2.8rem;"
-  >
-    <span data-lang="en">Get Started</span>
-    <span data-lang="ar">ابدأ الآن</span>
-  </button>
-</div>
+            <!-- <div class="hero-badge">
+                <i data-lucide="sparkles"></i>
+                Modern Office Solutions
+            </div> -->
+            <!-- <h1>SAF Office Solutions</h1> -->
+            <h1>Smarter Standard for Office Services</h1>
+            <!-- <h2>Internal Service Management for Offices</h2> -->
+            <h2>Reliable, organized and built for modern workplace</h2>
+            <!-- <p>Simplify daily requests without payments or apps.</p> -->
+            <div class="cta-group">
+                <button class="cta-button" onclick="window.location.href='#contact'" style="margin-top: 2.8rem;">Get Started</button>
+            </div>
         </div>
     </section>
 
@@ -931,21 +826,11 @@ body.rtl p {
 <!-- Animated Workflow Section -->
 <section class="workflow-section">
     <div class="workflow-container">
-<h2 class="workflow-title">
-  <span data-lang="en">Office Service, Simplified.</span>
-  <span data-lang="ar">خدمات مكتبية مبسطة</span>
-</h2>
-
-<p class="workflow-subtitle">
-  <span data-lang="en">
-    Employees request drinks or services in seconds.<br>
-    Service team receive, prepare, and deliver.
-  </span>
-  <span data-lang="ar">
-    يطلب الموظفون المشروبات أو الخدمات خلال ثوانٍ.<br>
-    يستلم فريق الخدمة الطلبات ويجهزها ويقوم بالتوصيل.
-  </span>
-</p>
+        <h2 class="workflow-title">Office Service, Simplified.</h2>
+        <p class="workflow-subtitle">
+Employees request drinks or services in seconds.
+Service team receive, prepare, and deliver.
+        </p>
 
         <div class="workflow-steps">
             <!-- Step 1 -->
@@ -966,19 +851,8 @@ body.rtl p {
                     loop
                     autoplay>
                 </lottie-player>
-<h3>
-  <span data-lang="en">Scan</span>
-  <span data-lang="ar">امسح</span>
-</h3>
-
-<p>
-  <span data-lang="en">
-    Scan the QR at your desk or meeting room, Instant access. No login, No apps.
-  </span>
-  <span data-lang="ar">
-    امسح رمز QR على مكتبك أو في غرفة الاجتماعات، وصول فوري بدون تسجيل دخول أو تطبيقات.
-  </span>
-</p>
+                <h3>Scan</h3>
+                <p>Scan the QR at your desk or meeting room, Instant access. No login, No apps.</p>
             </div>
 
             <!-- Connector -->
@@ -994,21 +868,9 @@ body.rtl p {
                     loop
                     autoplay>
                 </lottie-player>
-<h3>
-  <span data-lang="en">Order</span>
-  <span data-lang="ar">اطلب</span>
-</h3>
-
-<p>
-  <span data-lang="en">
-    Choose your request and submit.<br>
-    Drinks, pantry items, or office services all in one flow.
-  </span>
-  <span data-lang="ar">
-    اختر طلبك وقم بالإرسال.<br>
-    مشروبات، مستلزمات المطبخ أو خدمات مكتبية في تجربة واحدة.
-  </span>
-</p>
+                <h3>Order</h3>
+                <p>Choose your request and submit.
+Drinks, pantry items, or office services all in one flow.</p>
             </div>
 
             <!-- Connector -->
@@ -1024,22 +886,9 @@ body.rtl p {
                     loop
                     autoplay>
                 </lottie-player>
-
-<h3>
-  <span data-lang="en">Enjoy</span>
-  <span data-lang="ar">استمتع</span>
-</h3>
-
-<p>
-  <span data-lang="en">
-    Delivered by the assigned service team.<br>
-    Accurate, tracked, and on time.
-  </span>
-  <span data-lang="ar">
-    يتم التوصيل بواسطة فريق الخدمة المخصص.<br>
-    دقيق، متابع، وفي الوقت المحدد.
-  </span>
-</p>
+                <h3>Enjoy</h3>
+                <p>Delivered by the assigned service team.
+Accurate, tracked, and on time.</p>
             </div>
         </div>
     </div>
@@ -1050,19 +899,10 @@ body.rtl p {
     <!-- Our Partners Section -->
     <section class="section partners" id="partners">
         <div class="section-header">
-<h2 class="section-title">
-  <span data-lang="en">Our Trusted Partners</span>
-  <span data-lang="ar">شركاؤنا الموثوقون</span>
-</h2>
-
-<p class="section-subtitle">
-  <span data-lang="en">
-    We collaborate with leading organizations to deliver reliable, secure, and efficient office service solutions.
-  </span>
-  <span data-lang="ar">
-    نتعاون مع المؤسسات الرائدة لتقديم حلول خدمة مكتب موثوقة وآمنة وفعّالة.
-  </span>
-</p>
+            <h2 class="section-title">Our Trusted Partners</h2>
+            <p class="section-subtitle">
+                We collaborate with leading organizations to deliver reliable, secure, and efficient office service solutions.
+            </p>
         </div>
 
         <div class="partners-carousel">
@@ -1130,56 +970,27 @@ body.rtl p {
     </section>
 
     <section class="section how-it-works" id="how-it-works">
-<h2 class="section-title" style="text-align: center;">
-  <span data-lang="en">How Does It Work?</span>
-  <span data-lang="ar">كيف تعمل الخدمة؟</span>
-</h2>
+        <h2 class="section-title" style="text-align: center;">How Does It Work?</h2>
+        <p class="section-subtitle" style="text-align: center; margin-bottom: 20px;">
+            Through our services, take your employees on a seamless order & tracking journey!
+        </p>
 
-<p class="section-subtitle" style="text-align: center; margin-bottom: 20px;">
-  <span data-lang="en">
-    Through our services, take your employees on a seamless order & tracking journey!
-  </span>
-  <span data-lang="ar">
-    من خلال خدماتنا، امنح موظفيك تجربة طلب وتتبع سلسة!
-  </span>
-</p>
         <div class="work-item" onclick="toggleWork(this)">
             <div class="work-header">
                 <div class="work-icon">    
                     <i data-lucide="qr-code"></i>
                 </div>
                 <div class="work-title">
-                    <h3>
-                      <span data-lang="en">QR Code Order & Payment</span>
-                      <span data-lang="ar">طلب ودفع عبر رمز QR</span>
-                    </h3>
-                    <p>
-                      <span data-lang="en">Scan, browse, and order instantly from any desk</span>
-                      <span data-lang="ar">امسح، تصفح، واطلب فورًا من أي مكتب</span>
-                    </p>
+                    <h3>QR Code Order & Payment</h3>
+                    <p>Scan, browse, and order instantly from any desk</p>
                 </div>
                 <div class="expand-icon">▼</div>
             </div>
             <div class="work-content">
                 <div class="work-inner">
                     <div class="work-description">
-<p>
-  <span data-lang="en">
-    Employees can scan a QR code at their desk to browse the complete menu, choose their favorite beverages and snacks, and place orders instantly without needing to call or wait for staff.
-  </span>
-  <span data-lang="ar">
-    يمكن للموظفين مسح رمز الاستجابة السريعة على مكتبهم لتصفح القائمة الكاملة، واختيار المشروبات والوجبات الخفيفة المفضلة لديهم، وتقديم الطلبات فورًا دون الحاجة للاتصال أو الانتظار.
-  </span>
-</p>
-
-<p>
-  <span data-lang="en">
-    Each desk has a unique QR code that automatically identifies the location, room number, and desk ID, ensuring accurate delivery every time.
-  </span>
-  <span data-lang="ar">
-    يحتوي كل مكتب على رمز استجابة سريع فريد يحدد الموقع ورقم الغرفة ومعرف المكتب تلقائيًا، مما يضمن التسليم بدقة في كل مرة.
-  </span>
-</p>
+                        <p>Employees can scan a QR code at their desk to browse the complete menu, choose their favorite beverages and snacks, and place orders instantly without needing to call or wait for staff.</p>
+                        <p>Each desk has a unique QR code that automatically identifies the location, room number, and desk ID, ensuring accurate delivery every time.</p>
                     </div>
                     <div class="work-image">
                         <img src="qr scanning.avif" alt="QR Scan" loading="lazy"/>
@@ -1194,28 +1005,15 @@ body.rtl p {
                     <i data-lucide="layout-dashboard"></i>
                 </div>
                 <div class="work-title">
-                    <h3>
-                      <span data-lang="en">Real-Time Dashboard</span>
-                      <span data-lang="ar">لوحة التحكم في الوقت الحقيقي</span>
-                    </h3>
-                    <p>
-                      <span data-lang="en">Orders appear instantly on kitchen displays</span>
-                      <span data-lang="ar">تظهر الطلبات فورًا على شاشات المطبخ</span>
-                    </p>
+                    <h3>Real-Time Dashboard</h3>
+                    <p>Orders appear instantly on kitchen displays</p>
                 </div>
                 <div class="expand-icon">▼</div>
             </div>
             <div class="work-content">
                 <div class="work-inner">
                     <div class="work-description">
-<p>
-  <span data-lang="en">
-    Orders instantly appear on the assigned tea boy's dashboard with complete details including desk location, room number, items ordered, and any special requests in the notes section.
-  </span>
-  <span data-lang="ar">
-    تظهر الطلبات فورًا على لوحة التحكم الخاصة بالموزع المخصص مع جميع التفاصيل بما في ذلك موقع المكتب، رقم الغرفة، العناصر المطلوبة، وأي طلبات خاصة في قسم الملاحظات.
-  </span>
-</p>
+                        <p>Orders instantly appear on the assigned tea boy's dashboard with complete details including desk location, room number, items ordered, and any special requests in the notes section.</p>
                     </div>
                     <div class="work-image">
                         <img src="teaboy dashboard.png" alt="Teaboy Dashboard" loading="lazy"/>
@@ -1230,28 +1028,15 @@ body.rtl p {
                     <i data-lucide="check-circle"></i>
                 </div>
                 <div class="work-title">
-                    <h3>
-                      <span data-lang="en">Order Fulfillment & Updates</span>
-                      <span data-lang="ar">تنفيذ الطلبات والمحدثات</span>
-                    </h3>
-                    <p>
-                      <span data-lang="en">Track every order from preparation to delivery</span>
-                      <span data-lang="ar">تتبع كل طلب من التحضير إلى التسليم</span>
-                    </p>
+                    <h3>Order Fulfillment & Updates</h3>
+                    <p>Track every order from preparation to delivery</p>
                 </div>
                 <div class="expand-icon">▼</div>
             </div>
             <div class="work-content">
                 <div class="work-inner">
                     <div class="work-description">
-<p>
-  <span data-lang="en">
-    Tea boys can easily update order status from 'Received' to 'In Progress' to 'Completed' with just a tap. This keeps employees informed about their order's progress.
-  </span>
-  <span data-lang="ar">
-    يمكن للموزعين تحديث حالة الطلب بسهولة من "تم الاستلام" إلى "قيد التنفيذ" ثم "مكتمل" بنقرة واحدة فقط. هذا يبقي الموظفين على اطلاع بتقدم طلباتهم.
-  </span>
-</p>
+                        <p>Tea boys can easily update order status from 'Received' to 'In Progress' to 'Completed' with just a tap. This keeps employees informed about their order's progress.</p>
                     </div>
                     <div class="work-image">
                         <img src="order_update.png" alt="Order Update" loading="lazy"/>
@@ -1266,28 +1051,18 @@ body.rtl p {
                     <i data-lucide="bar-chart-3"></i>
                 </div>
                 <div class="work-title">
-<h3>
-  <span data-lang="en">Statistics & Administration</span>
-  <span data-lang="ar">الإحصائيات والإدارة</span>
-</h3>
-<p>
-  <span data-lang="en">Comprehensive insights and performance metrics</span>
-  <span data-lang="ar">رؤى شاملة وقياسات الأداء</span>
-</p>
+                    <h3>Statistics & Administration</h3>
+                    <p>Comprehensive insights and performance metrics</p>
                 </div>
                 <div class="expand-icon">▼</div>
             </div>
             <div class="work-content">
                 <div class="work-inner">
                     <div class="work-description">
-<p>
-  <span data-lang="en">
-    One dashboard to manage operations and track performance. Usage, delivery times, ratings, and team performance — all in one place.
-  </span>
-  <span data-lang="ar">
-    لوحة واحدة لإدارة العمليات وتتبع الأداء. الاستخدام، أوقات التسليم، التقييمات، وأداء الفريق — كل ذلك في مكان واحد.
-  </span>
-</p>
+                        <p>
+                            One dashboard to manage operations and track performance.
+                            Usage, delivery times, ratings, and team performance — all in one place.
+                        </p>
                     </div>
                     <div class="work-image">
                         <img src="stats.png" alt="Statistics" loading="lazy"/>
@@ -1298,37 +1073,23 @@ body.rtl p {
     </section>
 
     <section class="section contact-section" id="contact">
-<h2 class="section-title" style="text-align: center;">
-  <span data-lang="en">Contact Us</span>
-  <span data-lang="ar">تواصل معنا</span>
-</h2>
-<p class="section-subtitle" style="text-align: center;">
-  <span data-lang="en">Get in touch with us for any inquiries or support</span>
-  <span data-lang="ar">تواصل معنا لأي استفسارات أو دعم</span>
-</p>        
+        <h2 class="section-title" style="text-align: center;">Contact Us</h2>
+        <p class="section-subtitle" style="text-align: center;">Get in touch with us for any inquiries or support</p>
+        
         <div class="contact-container">
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon"><i data-lucide="map-pin"></i></div>
                     <div class="contact-details">
-<h4>
-  <span data-lang="en">Address</span>
-  <span data-lang="ar">العنوان</span>
-</h4>
-<p>
-  <span data-lang="en">Riyadh, Kingdom of Saudi Arabia</span>
-  <span data-lang="ar">الرياض، المملكة العربية السعودية</span>
-</p>
+                        <h4>Address</h4>
+                        <p>Riyadh, Kingdom of Saudi Arabia</p>
                     </div>
                 </div>
                 
                 <div class="contact-item">
                     <div class="contact-icon"><i data-lucide="mail"></i></div>
                     <div class="contact-details">
-<h4>
-  <span data-lang="en">Email</span>
-  <span data-lang="ar">البريد الإلكتروني</span>
-</h4>
+                        <h4>Email</h4>
                         <p><a href="mailto:admin@saforders.com">admin@saforders.com</a></p>
                     </div>
                 </div>
@@ -1336,10 +1097,7 @@ body.rtl p {
                 <div class="contact-item">
                     <div class="contact-icon"><i data-lucide="phone"></i></div>
                     <div class="contact-details">
-<h4>
-  <span data-lang="en">Phone</span>
-  <span data-lang="ar">الهاتف</span>
-</h4>
+                        <h4>Phone</h4>
                         <p><a href="tel:123456789">123456789</a></p>
                     </div>
                 </div>
@@ -1347,18 +1105,9 @@ body.rtl p {
                 <div class="contact-item">
                     <div class="contact-icon"><i data-lucide="clock"></i></div>
                     <div class="contact-details">
-                        <h4>
-  <span data-lang="en">Business Hours</span>
-  <span data-lang="ar">أوقات العمل</span>
-</h4>
-<p>
-  <span data-lang="en">Monday - Friday: 9:00 AM - 6:00 PM</span>
-  <span data-lang="ar">الإثنين - الجمعة: ٩:٠٠ ص - ٦:٠٠ م</span>
-</p>
-<p>
-  <span data-lang="en">Saturday: 10:00 AM - 4:00 PM</span>
-  <span data-lang="ar">السبت: ١٠:٠٠ ص - ٤:٠٠ م</span>
-</p>
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 10:00 AM - 4:00 PM</p>
                     </div>
                 </div>
             </div>
@@ -1366,71 +1115,26 @@ body.rtl p {
             <div class="contact-form">
                 <form action="https://formspree.io/f/xojjqyee" method="POST">
                     <div class="form-group">
-<label for="name">
-  <span data-lang="en">Full Name *</span>
-  <span data-lang="ar">الاسم الكامل *</span>
-</label>
-<input 
-  type="text" 
-  id="name" 
-  name="name" 
-  required 
-  placeholder="Enter your name"
-  data-en="Enter your name"
-  data-ar="أدخل اسمك"
->
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
                     </div>
                     
                     <div class="form-group">
-<label for="email">
-  <span data-lang="en">Email Address *</span>
-  <span data-lang="ar">البريد الإلكتروني *</span>
-</label>
-<input 
-  type="email" 
-  id="email" 
-  name="email" 
-  required 
-  placeholder="Enter your email"
-  data-en="Enter your email"
-  data-ar="أدخل بريدك الإلكتروني"
->
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
                     </div>
                     
                     <div class="form-group">
-<label for="phone">
-  <span data-lang="en">Phone Number</span>
-  <span data-lang="ar">رقم الهاتف</span>
-</label>
-<input 
-  type="tel" 
-  id="phone" 
-  name="phone" 
-  placeholder="Enter your phone number"
-  data-en="Enter your phone number"
-  data-ar="أدخل رقم هاتفك"
->
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                     </div>
                     
                     <div class="form-group">
-<label for="message">
-  <span data-lang="en">Message *</span>
-  <span data-lang="ar">الرسالة *</span>
-</label>
-<textarea 
-  id="message" 
-  name="message" 
-  required 
-  placeholder="How can we help you?"
-  data-en="How can we help you?"
-  data-ar="كيف يمكننا مساعدتك؟"
-></textarea>
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
                     </div>
 
-<button type="submit" class="submit-btn">
-  <span data-lang="en">Send Message</span>
-  <span data-lang="ar">إرسال الرسالة</span>
-</button>
+                    <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
         </div>
@@ -1463,6 +1167,7 @@ body.rtl p {
             header.classList.toggle("scrolled", window.scrollY > 20);
         });
 
+
         let lastScrollTop = 0;
 const header = document.getElementById("header");
 
@@ -1478,30 +1183,6 @@ window.addEventListener("scroll", () => {
     header.classList.toggle("scrolled", currentScroll > 20);
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
-
-
-function toggleLanguage() {
-  const body = document.body;
-  const langBtn = document.querySelector(".lang-switch");
-
-  body.style.transition = "opacity 0.3s";
-  body.style.opacity = "0.5";
-
-  setTimeout(() => {
-    const isRTL = body.classList.toggle("rtl");
-    langBtn.textContent = isRTL ? "EN" : "AR";
-    body.style.opacity = "1";
-  }, 300);
-
-  document.querySelectorAll("input, textarea").forEach(el => {
-  if (el.dataset.en && el.dataset.ar) {
-    el.placeholder = document.body.classList.contains("rtl")
-      ? el.dataset.ar
-      : el.dataset.en;
-  }
-});
-
-}
     </script>
 </body>
 </html>
